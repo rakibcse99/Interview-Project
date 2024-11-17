@@ -1,8 +1,8 @@
 package com.rakibcse99.gozayaanui.di
 
+import com.facebook.shimmer.BuildConfig
 import com.rakibcse99.gozayaanui.Apiservice.ApiService
 import com.rakibcse99.gozayaanui.utils.Constants
-import com.rakibcse99.gozayaanui.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

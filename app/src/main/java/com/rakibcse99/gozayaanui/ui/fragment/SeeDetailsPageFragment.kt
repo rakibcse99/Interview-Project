@@ -3,19 +3,18 @@ package com.rakibcse99.gozayaanui.ui.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rakibcse99.gozayaanui.R
+import com.rakibcse99.gozayaanui.base.BaseFragment
 import com.rakibcse99.gozayaanui.base.Status
 import com.rakibcse99.gozayaanui.databinding.FragmentSeeDetailsPageBinding
 import com.rakibcse99.gozayaanui.models.RecommendedModel
-import com.rakibcse99.gozayaanui.ui.adpter.RecommendedAdapterAll
+import com.rakibcse99.gozayaanui.ui.adapter.RecommendedAdapterAll
 import com.rakibcse99.gozayaanui.ui.viewModel.RecommendedViewModel
 import com.rakibcse99.gozayaanui.utils.SimpleCallback
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,37 +22,52 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SeeDetailsPageFragment : Fragment() {
-    lateinit var binding: FragmentSeeDetailsPageBinding
+class SeeDetailsPageFragment : BaseFragment<FragmentSeeDetailsPageBinding>() {
+
     private val recommendedViewModel by viewModels<RecommendedViewModel>()
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentSeeDetailsPageBinding.inflate(inflater)
-        return binding.root
+    override fun getViewBinding(inflater: LayoutInflater): FragmentSeeDetailsPageBinding {
+        return FragmentSeeDetailsPageBinding.inflate(inflater)
     }
 
+    override fun callInitialApi() {
+        super.callInitialApi()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         recommendedViewModel.getRecommendedList()
+    }
+
+    override fun initializeData() {
+        super.initializeData()
+        binding.shimmerLayout.startShimmer()
+    }
+
+    override fun setListener() {
+        super.setListener()
+        binding.ivBack.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
+
+    }
+    override fun setupObserver() {
+        super.setupObserver()
+
         lifecycleScope.launch {
             recommendedViewModel.recommendedModelResult.collectLatest {
 
                 when (it.status) {
                     Status.SUCCESS -> {
-
-
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
                         val recommendedModel = it.data
-                       recyclerView(recommendedModel)
-
+                        recyclerView(recommendedModel)
                     }
 
                     Status.LOADING -> {
-
+                        binding.shimmerLayout.startShimmer()
                     }
 
                     Status.ERROR -> {
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
                         val errMsg = it.error?.message ?: ""
                         Toast.makeText(requireContext(), (errMsg), Toast.LENGTH_SHORT).show()
                     }
@@ -63,10 +77,11 @@ class SeeDetailsPageFragment : Fragment() {
         }
     }
 
+
     private fun recyclerView(recommendedModel: MutableList<RecommendedModel>?) {
         val adapter = recommendedModel?.let { it1 -> RecommendedAdapterAll(it1) }
 
-        binding.recylerRecommended.layoutManager = GridLayoutManager(context,  2)
+        binding.recylerRecommended.layoutManager = GridLayoutManager(context, 2)
         binding.recylerRecommended.itemAnimator = DefaultItemAnimator()
         binding.recylerRecommended.setHasFixedSize(true)
         adapter?.clickListener = object : SimpleCallback<RecommendedModel> {
@@ -79,5 +94,18 @@ class SeeDetailsPageFragment : Fragment() {
         binding.recylerRecommended.adapter = adapter
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.shimmerLayout.startShimmer()
 
+    }
+
+    override fun onPause() {
+        binding.shimmerLayout.stopShimmer()
+        super.onPause()
+    }
+
+    override fun backPressButtonPressed() {
+        findNavController().navigate(R.id.mainFragment)
+    }
 }

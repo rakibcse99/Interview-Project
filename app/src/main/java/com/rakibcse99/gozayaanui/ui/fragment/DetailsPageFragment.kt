@@ -1,30 +1,20 @@
 package com.rakibcse99.gozayaanui.ui.fragment
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.rakibcse99.gozayaanui.R
+import com.rakibcse99.gozayaanui.base.BaseFragment
 import com.rakibcse99.gozayaanui.databinding.FragmentDetailsPageBinding
 import com.rakibcse99.gozayaanui.models.RecommendedModel
-import com.rakibcse99.gozayaanui.ui.adpter.OnBoardingPagerAdapter
+import com.rakibcse99.gozayaanui.ui.adapter.OnBoardingPagerAdapter
 
-class DetailsPageFragment : Fragment() {
-    lateinit var binding: FragmentDetailsPageBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentDetailsPageBinding.inflate(inflater)
-        return binding.root
-
-
+class DetailsPageFragment : BaseFragment<FragmentDetailsPageBinding>() {
+    override fun getViewBinding(inflater: LayoutInflater): FragmentDetailsPageBinding {
+        return  FragmentDetailsPageBinding.inflate(inflater)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initializeData() {
+        super.initializeData()
         val recommendedModel = arguments?.getSerializable("recommendedModel") as? RecommendedModel
 
         // Use the model data
@@ -44,20 +34,34 @@ class DetailsPageFragment : Fragment() {
                 }
 
                 retHotelTV.text = "${currencyIcon} ${it.fare}"
-                durationTV.text =" / ${it.fareUnit}"
+                durationTV.text = " / ${it.fareUnit}"
 
             }
 
-
-            val introPagerAdapter = OnBoardingPagerAdapter(requireContext(), recommendedModel.detailImages,)
-
-            binding.viewPager.apply {
-                adapter = introPagerAdapter
-                pageMargin = 3
-                clipChildren = false
-                offscreenPageLimit = 3
-            }
-            binding.tabIndicator.setupWithViewPager(binding.viewPager)
         }
+
+        // adapter Initialize
+        val introPagerAdapter = recommendedModel?.let { OnBoardingPagerAdapter(requireContext(), it.detailImages,) }
+
+        binding.viewPager.apply {
+            adapter = introPagerAdapter
+            pageMargin = 3
+            clipChildren = false
+            offscreenPageLimit = 3
+        }
+        binding.tabIndicator.setupWithViewPager(binding.viewPager)
+    }
+    override fun setListener() {
+        super.setListener()
+        binding.ivBack.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
+    }
+
+    override fun backPressButtonPressed() {
+        super.backPressButtonPressed()
+            super.setListener()
+            findNavController().navigate(R.id.mainFragment)
+
     }
 }

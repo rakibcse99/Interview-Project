@@ -1,4 +1,4 @@
-package com.rakibcse99.gozayaanui.ui.adpter
+package com.rakibcse99.gozayaanui.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
