@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="cardBackground">#2D303A</color>
+    <color name="layoutBackground">#1D2026</color>
+    <color name="colorGradient">#F88264</color>
+
+</resources>

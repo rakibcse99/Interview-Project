@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+
+
+    <fragment
+        android:id="@+id/detailsPageFragment"
+        android:name="com.rakibcse99.gozayaanui.ui.fragment.DetailsPageFragment"
+        android:label="fragment_details_page"
+        tools:layout="@layout/fragment_details_page" />
+    <fragment
+        android:id="@+id/seeDetailsPageFragment"
+        android:name="com.rakibcse99.gozayaanui.ui.fragment.SeeDetailsPageFragment"
+        android:label="fragment_see_details_page"
+        tools:layout="@layout/fragment_see_details_page" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.rakibcse99.gozayaanui.ui.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+</navigation>

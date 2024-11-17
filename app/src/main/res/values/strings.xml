@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Gozayaan Apps</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="india_uttorpodesh">India Uttorpodesh</string>
+    <string name="india">India</string>
+    <string name="popular_categories">Popular Categories</string>
+    <string name="new_york_ny">New York, NY</string>
+    <string name="search">Search</string>
+    <string name="flights">Flights</string>
+    <string name="todo">TODO</string>
+    <string name="hotels">Hotels</string>
+    <string name="visa">Visa</string>
+    <string name="buses">Buses</string>
+    <string name="recommended">Recommended</string>
+    <string name="mountain_safari">Mountain Safari</string>
+    <string name="about_the_trip">About the trip</string>
+    <string name="list_of_inspiring_slogans_a_fresh_coat_for_a_fresh_start_meet_the_world_make_traveling_fun_explore_the_globe_with_a_new_sky_a_new_life_let_us_help_you_find">List of Inspiring Slogans a fresh coat for a fresh start meet the world make traveling fun explore the globe with a new sky, a new life let us help you find ...</string>
+    <string name="book_now">Book Now</string>
+
+</resources>

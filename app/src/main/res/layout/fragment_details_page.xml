@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layoutBackground"
+    tools:context=".ui.fragment.DetailsPageFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutSlider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/titleTV"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/marginLarge"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:tabBackground="@drawable/indicator_selector"
+            app:tabGravity="center"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorHeight="0dp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/rubik_bold"
+        android:text="@string/mountain_safari"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeLarge"
+        app:layout_constraintBottom_toTopOf="@+id/locationTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSlider" />
+
+    <TextView
+        android:id="@+id/retTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:alpha=".6"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/rubik_regular"
+        android:text="00"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeSmall"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_star"
+        app:layout_constraintBottom_toTopOf="@+id/locationTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSlider" />
+
+    <TextView
+        android:id="@+id/locationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:alpha=".6"
+        android:fontFamily="@font/rubik_regular"
+        android:text="@string/india"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeSmall"
+        app:drawableStartCompat="@drawable/ic_location"
+        app:layout_constraintBottom_toTopOf="@+id/aboutTitleTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+
+
+    <TextView
+        android:id="@+id/aboutTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:alpha=".9"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="@string/about_the_trip"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeRegular"
+        app:drawableEndCompat="@drawable/ic_emoji"
+        app:layout_constraintBottom_toTopOf="@+id/aboutBodyTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locationTV" />
+
+    <TextView
+
+        android:id="@+id/aboutBodyTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:alpha=".7"
+        android:fontFamily="@font/rubik_regular"
+        android:lineHeight="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:text="@string/list_of_inspiring_slogans_a_fresh_coat_for_a_fresh_start_meet_the_world_make_traveling_fun_explore_the_globe_with_a_new_sky_a_new_life_let_us_help_you_find"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeSmall"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutTitleTV" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"
+        android:alpha=".6"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/layoutButton"
+        app:layout_constraintTop_toBottomOf="@+id/aboutBodyTV" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/retHotelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$50000"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeExtraSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/durationTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/per day"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:alpha=".6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/retHotelTV"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bookingBT"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/rubik_bold"
+            android:gravity="center"
+            android:text="@string/book_now"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSizeSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

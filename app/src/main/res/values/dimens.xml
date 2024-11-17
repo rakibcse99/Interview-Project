@@ -1,0 +1,57 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+
+
+
+    // Regular Text
+    <dimen name="textSizeExtraSmall">12sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeRegular">16sp</dimen>
+    <dimen name="textSizeLarge">18sp</dimen>
+    <dimen name="textSizeExtraLarge">20sp</dimen>
+
+    // Heading Text
+    <dimen name="textSizeHeading">30sp</dimen>
+    <dimen name="textSizeHeadingLarge">35sp</dimen>
+    <dimen name="textSizeHeadingSmall">25sp</dimen>
+
+    // Sub Heading Text
+    <dimen name="textSizeSubHeading">22sp</dimen>
+    <dimen name="textSizeSubHeadingLarge">24sp</dimen>
+
+    <dimen name="lineSpacingRegular">5dp</dimen>
+
+    // Button
+    <dimen name="textSizeButton">12sp</dimen>
+    <dimen name="progressButtonHeight">42dp</dimen>
+
+    // Margin
+    <dimen name="marginExtraSmall">5dp</dimen>
+    <dimen name="marginSmall">10dp</dimen>
+    <dimen name="marginMedium">15dp</dimen>
+    <dimen name="marginRegular">20dp</dimen>
+    <dimen name="marginLarge">25dp</dimen>
+    <dimen name="marginExtraLarge">35dp</dimen>
+
+    // Padding
+    <dimen name="paddingExtraSmall">2dp</dimen>
+    <dimen name="paddingSmall">5dp</dimen>
+    <dimen name="paddingRegular">10dp</dimen>
+    <dimen name="paddingLarge">12dp</dimen>
+    <dimen name="paddingExtraLarge">15dp</dimen>
+
+    // Corner Radius
+    <dimen name="cornerRadiusRegular">5dp</dimen>
+    <dimen name="cornerRadiusLarge">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+
+    // card elevation
+    <dimen name="cardElevationSmall">1dp</dimen>
+    <dimen name="cardElevationRegular">2dp</dimen>
+</resources>
