@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+
     android:background="@color/layoutBackground"
     android:orientation="horizontal">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
+        android:layout_weight="1"
         android:background="@color/white"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,10 +97,11 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
+        android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
